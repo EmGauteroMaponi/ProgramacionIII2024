@@ -70,8 +70,9 @@ public class InterfazSwing extends InterfazUsuario implements ActionListener {
             primo = Integer.parseInt(JOptionPane.showInputDialog("El número no es primo, o está repetido, por favor ingrese un número válido"));
         }
         getPrimos().agregarPrimo(primo);
-        JOptionPane.showConfirmDialog(null, "El numero se guardó de forma Correcta");
+        JOptionPane.showMessageDialog(null, "El numero se guardó de forma Correcta");
     }
+
 
     private void eliminarPrimo() {
         String primoS = JOptionPane.showInputDialog("Ingresa el número que quieres eliminar");
