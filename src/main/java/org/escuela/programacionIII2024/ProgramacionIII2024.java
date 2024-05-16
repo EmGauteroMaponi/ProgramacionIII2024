@@ -8,8 +8,10 @@ public class ProgramacionIII2024 {
     public static void main(String[] args) {
         ListaEnteros listaEnteros = new ListaEnteros();
         Primos primos =  new Primos(listaEnteros);
-        InterfazUsuario interfazUsuario = new InterfazUsuario(primos);
+//        InterfazUsuario interfazUsuario = new InterfazUsuario(primos);
+        InterfazUsuario interfazUsuario = new InterfazSwing(primos);
         interfazUsuario.run();
+
     }
 }
 
