@@ -13,6 +13,14 @@ public class InterfazUsuario {
         this.opcion = 0;
     }
 
+    public void setPrimos(Primos primos) {
+        this.primos = primos;
+    }
+
+    public Primos getPrimos() {
+        return primos;
+    }
+
     public void run(){
         System.out.println("Bienvenido al Sistema de Gestion de numeros primos");
         while (opcion != 6) {
@@ -95,9 +103,10 @@ public class InterfazUsuario {
         return scanner.nextInt();
     }
 
-    private void imprimirPrimos (int[] vector){
+    protected void imprimirPrimos (int[] vector){
         for( int i : vector){
             System.out.println(" - "+ i);
         }
     }
+
 }
