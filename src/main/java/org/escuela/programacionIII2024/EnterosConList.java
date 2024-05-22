@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class ListEnteros extends ListaEnteros {
+public class EnterosConList extends ListaEnteros {
     List<Integer> enteros;
 
-    public ListEnteros() {
+    public EnterosConList() {
         super();
         enteros = new ArrayList<>();
     }
