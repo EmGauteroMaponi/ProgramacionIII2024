@@ -9,6 +9,11 @@ public class Biblioteca {
     public Biblioteca() {
     }
 
+    public Biblioteca(List<Libro> libros, List<Persona> personas) {
+        this.libros = libros;
+        this.personas = personas;
+    }
+
     public List<Libro> getLibros() {
         return libros;
     }
