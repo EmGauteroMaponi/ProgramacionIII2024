@@ -1,8 +1,8 @@
 package org.escuela.programacionIII2024;
 
-import org.escuela.programacionIII2024.modelo.Biblioteca;
-import org.escuela.programacionIII2024.modelo.Libro;
-import org.escuela.programacionIII2024.modelo.Persona;
+import org.escuela.programacionIII2024.models.Biblioteca;
+import org.escuela.programacionIII2024.models.Libro;
+import org.escuela.programacionIII2024.models.Persona;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +18,6 @@ public class ProgramacionIII2024 {
 
         List<Persona> personas = new ArrayList<>();
         personas.add(new Persona("33345678", "cliente uno"));
-
-        Biblioteca biblioteca = new Biblioteca();
 
         //Agregamos un libro nuevo a la biblioteca
 
