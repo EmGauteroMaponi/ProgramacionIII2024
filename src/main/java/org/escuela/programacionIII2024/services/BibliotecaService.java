@@ -3,9 +3,11 @@ package org.escuela.programacionIII2024.services;
 import org.escuela.programacionIII2024.models.Biblioteca;
 import org.escuela.programacionIII2024.models.Libro;
 import org.escuela.programacionIII2024.models.Persona;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class BibliotecaService {
 
     private Biblioteca biblioteca;

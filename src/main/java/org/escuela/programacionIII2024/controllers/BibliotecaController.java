@@ -3,47 +3,55 @@ package org.escuela.programacionIII2024.controllers;
 import org.escuela.programacionIII2024.models.Libro;
 import org.escuela.programacionIII2024.models.Persona;
 import org.escuela.programacionIII2024.services.BibliotecaService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@RestController("/biblioteca")
 public class BibliotecaController {
 
+    @Autowired
+    @Qualifier("service")
     private BibliotecaService bibliotecaService;
 
+    @PostMapping("/libro")
     //Agregamos un libro nuevo a la biblioteca
-    public Libro agregarLibro(Libro libro){
+    public Libro agregarLibro(@RequestBody Libro libro){
         return bibliotecaService.agregarLibro(libro);
     }
 
-    public void eliminarLibro(Libro libro){
+    @DeleteMapping("/libro")
+    public void eliminarLibro(@RequestBody Libro libro){
         bibliotecaService.eliminarLibro(libro);
     }
 
-    public List<Libro> obtenerLibrosPorNombre(String nombre){
+    @GetMapping("/libro/{nombre}")
+    public List<Libro> obtenerLibrosPorNombre(@PathVariable("nombre") String nombre){
         return bibliotecaService.buscarPorNombre(nombre);
     }
-
-    public List<Libro> obtenerLibrosPorAutor(String autor){
+    @GetMapping("/libro/{autor}")
+    public List<Libro> obtenerLibrosPorAutor(@PathVariable("autor")String autor){
         return bibliotecaService.buscarPorAutor(autor);
     }
 
-    public Persona agregarCliente(Persona persona){
+    @PostMapping("/cliente")
+    public Persona agregarCliente(@RequestBody Persona persona){
         return bibliotecaService.agregarCliente(persona);
     }
 
-    public void eliminarCliente(Persona persona){
+    @DeleteMapping("/cliente")
+    public void eliminarCliente(@RequestBody Persona persona){
         bibliotecaService.eliminarCliente(persona);
     }
 
+    @GetMapping("/cliente")
     public List<Persona> obtenerTodosLosClientes(){
         return bibliotecaService.getClientes();
     }
 
+    @GetMapping("/libro")
     public List<Libro> obtenerTodosLosLibro(){
         return bibliotecaService.getLibros();
     }
-
-    //Agregamos a un cliente a la biblioteca
-
-    //Eliminamos a un cliente de la biblioteca
 }

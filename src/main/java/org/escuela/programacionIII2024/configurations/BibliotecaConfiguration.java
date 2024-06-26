@@ -4,11 +4,16 @@ import org.escuela.programacionIII2024.models.Biblioteca;
 import org.escuela.programacionIII2024.models.Libro;
 import org.escuela.programacionIII2024.models.Persona;
 import org.escuela.programacionIII2024.services.BibliotecaService;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Configuration {
+@Configuration
+public class BibliotecaConfiguration {
+    @Bean
     public List<Libro> libros(){
         List<Libro> libros = new ArrayList<>();
         libros.add(new Libro("Cien años de soledad",new Persona("11.111.111","Gabriel Garcia Marquez"),"Novela"));
@@ -34,6 +39,7 @@ public class Configuration {
         libros.add(new Libro("Moby-Dick", new Persona("11.111.121", "Herman Melville"), "Aventura"));
         return libros;
     }
+    @Bean
     public List<Persona> clientes(){
         List<Persona> clientes = new ArrayList<>();
         clientes.add(new Persona("12357741", "Carlos Gutierrez"));
@@ -59,11 +65,13 @@ public class Configuration {
         return clientes;
     }
 
-    public Biblioteca biblioteca(List<Libro> libros, List<Persona> personas){
+    @Bean
+    public Biblioteca biblioteca(@Qualifier("libros") List<Libro> libros,@Qualifier("clientes") List<Persona> personas){
         return new Biblioteca(libros,personas);
     }
 
-    public BibliotecaService bibliotecaService(Biblioteca biblioteca){
+    @Bean("service")
+    public BibliotecaService bibliotecaService(@Qualifier("biblioteca") Biblioteca biblioteca){
         return new BibliotecaService(biblioteca);
     }
 }
