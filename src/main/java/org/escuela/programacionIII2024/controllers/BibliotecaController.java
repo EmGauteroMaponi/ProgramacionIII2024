@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-@RestController("/biblioteca")
+@RestController
 public class BibliotecaController {
 
     @Autowired
@@ -30,8 +30,8 @@ public class BibliotecaController {
     public List<Libro> obtenerLibrosPorNombre(@PathVariable("nombre") String nombre){
         return bibliotecaService.buscarPorNombre(nombre);
     }
-    @GetMapping("/libro/{autor}")
-    public List<Libro> obtenerLibrosPorAutor(@PathVariable("autor")String autor){
+    @GetMapping("/libro/params")
+    public List<Libro> obtenerLibrosPorAutor(@RequestParam("autor")String autor){
         return bibliotecaService.buscarPorAutor(autor);
     }
 
